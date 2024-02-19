@@ -16,7 +16,7 @@
         function signInWithPing() {
         // Replace 'your-client-id' with your actual client ID obtained from Ping Identity
             var clientId = '9f9abd19-48f3-4e6d-b62a-752f82107994';
-            var redirectUri = 'http://localhost:3000/auth/ping/callback'
+            var redirectUri = 'https://token.botframework.com/.auth/web/redirect'
 
             // var redirectUri = encodeURIComponent(window.location.href);
             var authUrl = 'https://auth.pingone.com/19ed1a6e-e5c3-4c70-9396-5fc64433c39c/as/authorize' +
@@ -25,7 +25,6 @@
         // Redirect the user to Ping Identity's authentication page
         window.location.href = authUrl;
 }
-
     </script>
 </body>
 </html>
