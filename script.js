@@ -1,4 +1,4 @@
-document.getElementById('loginButton').addEventListener('click', function(){
-    // Redirect the user to Ping's login page
+document.getElementById('loginButton').addEventListener('click', function() {
+    // Initiate the login process using Ping OAuth library
     PingOAuth.login();
 });
