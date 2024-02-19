@@ -14,19 +14,25 @@
 
     <script>
         function signInWithPing() {
-        // Replace 'your-client-id' with your actual client ID obtained from Ping Identity
             var clientId = '9f9abd19-48f3-4e6d-b62a-752f82107994';
-            var redirectUri = 'https://token.botframework.com/.auth/web/redirect'
-            var responseType = 'code'; //Specify the response type
+            var redirectUri = 'https://token.botframework.com/.auth/web/redirect';
+            var responseType = 'code';
+            var state = generateState(); // Generate a random state value
 
-            // var redirectUri = encodeURIComponent(window.location.href);
             var authUrl = 'https://auth.pingone.com/19ed1a6e-e5c3-4c70-9396-5fc64433c39c/as/authorize' +
                   '?client_id=' + clientId +
                   '&redirect_uri=' + encodeURIComponent(redirectUri) +
-                  '&response_type=' + responseType; //Specify the response type
-        // Redirect the user to Ping Identity's authentication page
-        window.location.href = authUrl;
-}
+                  '&response_type=' + responseType +
+                  '&state=' + state; // Include state parameter
+
+            // Redirect the user to Ping Identity's authentication page
+            window.location.href = authUrl;
+        }
+
+        function generateState() {
+            // Generate a random string for the state parameter
+            return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        }
     </script>
 </body>
 </html>
