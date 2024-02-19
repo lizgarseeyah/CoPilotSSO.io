@@ -1,0 +1,27 @@
+{
+  "name": "copilotsso",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lizgarseeyah/CoPilotSSO.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lizgarseeyah/CoPilotSSO/issues"
+  },
+  "homepage": "https://github.com/lizgarseeyah/CoPilotSSO#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.18.0",
+    "passport": "^0.7.0",
+    "passport-ping-oauth2": "^1.0.0"
+  }
+}
