@@ -1,7 +1,8 @@
 const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
-const PingStrategy = require('passport-ping-oauth').Strategy;
+const PingStrategy = require('passport-ping-oauth2').Strategy;
+const OAuth2Strategy = require('passport-ping-oauth2').Strategy;
 
 const app = express();
 
@@ -18,13 +19,27 @@ app.use(passport.session());
 
 // Define Ping OAuth Strategy
 passport.use(new PingStrategy({
-    clientID: 'y0fc4ee82-36f0-4626-93b9-587f4a7981a9',
-    clientSecret: 'HE.y3JPKSbXOs4YwEvCDxj~kt8yJQEEr3T8T84VIgU6II5LZ37i8s9ytf9dVTmUx',
+    clientID: 'e8bf0d08-c70d-458e-b4b0-fe3922b6bdf2',
+    clientSecret: 'N7PUniJUOTrSrCaf-P.9W2mcc-F1AacabY9HYG6FQfPUZT~.3H..SOgKoS8Km~Tp',
     callbackURL: 'http://localhost:3000/auth/ping/callback'
   },
   function(accessToken, refreshToken, profile, done) {
     // Save user information if needed
     return done(null, profile);
+  }
+));
+
+passport.use(new OAuth2Strategy({
+    authorizationURL: 'URL_TO_AUTHORIZATION_ENDPOINT',
+    tokenURL: 'URL_TO_TOKEN_ENDPOINT',
+    clientID: 'e8bf0d08-c70d-458e-b4b0-fe3922b6bdf2',
+    clientSecret: 'N7PUniJUOTrSrCaf-P.9W2mcc-F1AacabY9HYG6FQfPUZT~.3H..SOgKoS8Km~Tp',
+    callbackURL: 'http://localhost:3000/auth/ping/callback'
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    // Verify user logic
+    // This function will be called after successful authentication
+    return cb(null, profile);
   }
 ));
 

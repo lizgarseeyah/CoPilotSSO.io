@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>CoPilot SSO Demo</title>
+</head>
+<body>
+    <div class="container">
+        <button onclick="signInWithPing()">Sign in with Ping</button>
+        <div id="webchat-container">
+            <!-- Web chat iframe will be loaded here after authentication -->
+        </div>
+    </div>
+
+    <script>
+        function signInWithPing() {
+            // Redirect the user to Ping Identity's authentication page
+            window.location.href = "https://your-ping-identity-url.com/authenticate";
+        }
+    </script>
+</body>
+</html>
